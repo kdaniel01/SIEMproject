@@ -1,7 +1,7 @@
 # SIEMproject
 Using Azure Sentinel to create a live cyber attack map
 
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/yqLiKUC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 
 
