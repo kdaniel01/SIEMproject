@@ -20,9 +20,9 @@ Using Azure Sentinel to create a live cyber attack map
 
 
 <h2>Overview </h2>
-- <b>Part 1- Creating Honeypot VM and RDP VM<br />
+- <b>Part 1- Creating Honeypot VM and RDP VM.<br />
 - <b>Part 2- <br />
-- <b>Part 3-<br />
+- <b>Part 3- Creating the failed rdp map in Sentinel.<br />
  
  
 <h2>Part 1- Creating Honeypot VM and RDP VM:</h2>
@@ -86,13 +86,57 @@ A Powershell script which collects the IPs of failed RDP attempts which are sent
 <br />
 <h2>Part 2- Creating the custom log in the Log Analytics Workspace:</h2>
 
-
-Created custom log in Log Analytics Workspace. The failed RDP attempts log collected by the powershell script was mapped.<br/>
+Created a custom log in Log Analytics Workspace. The failed RDP attempts log collected by the powershell script was mapped into the L.A.W.<br/>
 <img src="https://i.imgur.com/onrCLyW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<br /><br /><br /><br /><br /><br /><br /><br />
+<img src="https://i.imgur.com/PUi2QX1.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/br3xvEe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://i.imgur.com/s9JGrCE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/a2BSobl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/DKiD3zH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://i.imgur.com/oJr7snR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/JeyFDx4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/Al6cWkM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/yXPey3s.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<h2>Part 3- Creating the failed rdp map in Sentinel</h2>
+
+<p align="center">
+First performed some intentional failed RDP attempts to confirm that the logs were being parsed live. Then created the map in Sentinel.<br />
+<img src="https://i.imgur.com/NZsy7YJ.png" height="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/dC6OSs6.png" height="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+Visualized the logs as a map in Azure Sentinel to see where the attempts are originating from.<br/>
+<img src="https://i.imgur.com/USL3nah.png" height="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/OtlYn2o.png" height="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/jiZnvKl.png" height="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/dRJIwwG.png" height="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/A8G28NQ.png" height="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/jKLri07.png" height="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://i.imgur.com/5elwy4e.png" height="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br /><br /><br /><br /><br /><br />
 <br /><br /><br />
-Continue from here.....................................
+
 
 
 
