@@ -21,7 +21,7 @@ Using Azure Sentinel to create a live cyber attack map
 
 <h2>Overview </h2>
 - <b>Part 1- Creating Honeypot VM and RDP VM.<br />
-- <b>Part 2- <br />
+- <b>Part 2- Creating the custom log in the Log Analytics Workspace.<br />
 - <b>Part 3- Creating the failed rdp map in Sentinel.<br />
  
  
@@ -110,7 +110,7 @@ Created a custom log in Log Analytics Workspace. The failed RDP attempts log col
 <img src="https://i.imgur.com/yXPey3s.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<h2>Part 3- Creating the failed rdp map in Sentinel</h2>
+<h2>Part 3- Creating the failed rdp map in Sentinel: </h2>
 
 <p align="center">
 First performed some intentional failed RDP attempts to confirm that the logs were being parsed live. Then created the map in Sentinel.<br />
