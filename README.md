@@ -28,11 +28,13 @@ Using Azure Sentinel to create a live cyber attack map
 <h2>Part 1- Creating Honeypot VM and RDP VM:</h2>
 
 <p align="center">
-Created a Honeypot VM exposed to Internet. Another VM was created to RDP into this Honeypot.<br />
+Created a Honeypot VM exposed to Internet. Another VM was also created to RDP into this Honeypot.<br />
 <img src="https://i.imgur.com/3vIUiH3.png" height="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/6orEoJz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+<br />
+An inbound rule was created to make the Honeypot VM open to all traffic from the internet.
 <img src="https://i.imgur.com/LGJeTS6.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/Yymvr97.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -42,14 +44,16 @@ Secp-vm1 was created in its own resource group with virtual network.This VM will
 <br />
 <img src="https://i.imgur.com/aL2WexQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+Tested Remoting into Honeypot VM which was susccessful.
 <img src="https://i.imgur.com/nTEgjAa.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/jMRB3I4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Created a Log Analytics workspace.<br />
+Created a Log Analytics workspace which was used to collect the failed rdp log data from the Honeypot.<br />
 <img src="https://i.imgur.com/cHN8BeH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+SQL Server services was turned off as its not needed in defender plans. The data collection level was set to All events so that we can gather all logs.
 <img src="https://i.imgur.com/AWi9ZrZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/WStalxE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -59,13 +63,13 @@ Created a Log Analytics workspace.<br />
 <img src="https://i.imgur.com/as3Sb4e.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Created Azure Sentinel.<br />
+Created Azure Sentinel and connected the Log Analytics Workspace to it. Sentinel is typically used to set up alerts and triggers from logs but failed rdp logo data is going to be visualized as map in this project.<br />
 <img src="https://i.imgur.com/VZ1HnAB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/RI8Ipou.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Made the Honeypot VM vulnerable by disabling Windows Defender Firewall.Now we can see ICMP pings are allowed.<br />
+Continued making the Honeypot VM more vulnerable by disabling Windows Defender Firewall. Now we can see ICMP pings are allowed.<br />
 <img src="https://i.imgur.com/jMRB3I4.png"80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/dhE6hF8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -78,14 +82,17 @@ Performed a failed RDP attempt and verified it was logged in Event Viewer on the
 <br />
 <img src="https://i.imgur.com/bSlT44e.png"80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-A Powershell script which collects the IPs of failed RDP attempts which are sent to a 3rd party API (ipgeolocation.io) to be extracted. The latitude and longitude of these IPs which will be used in the map generation for Sentinel.We can also see my previous failed RDP attempt.<br />
+<br />
+A Powershell script which collects the IPs of failed RDP attempts which are sent to a 3rd party API (ipgeolocation.io) to be extracted. The latitude and longitude of these IPs which will be used in the map generation for Sentinel.We can also see my previous failed RDP attempt.
+<br />
 <img src="https://i.imgur.com/2nkIjZD.png"80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/jZi88Uw.png"80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<h2>Part 2- Creating the custom log in the Log Analytics Workspace:</h2>
 
+<h2>Part 2- Creating the custom log in the Log Analytics Workspace:</h2>
+<p align="center">
 Created a custom log in Log Analytics Workspace. The failed RDP attempts log collected by the powershell script was mapped into the L.A.W.<br/>
 <img src="https://i.imgur.com/onrCLyW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
@@ -96,6 +103,7 @@ Created a custom log in Log Analytics Workspace. The failed RDP attempts log col
 <br />
 <img src="https://i.imgur.com/s9JGrCE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
+Checked if L.A.W is receiving log by checking for updated Windows Security logs which it was. This was done by running SecurityEvent | where EventID == 4625 which showed all recent failed rdp logs.<br />
 <img src="https://i.imgur.com/a2BSobl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/DKiD3zH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
