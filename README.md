@@ -103,7 +103,7 @@ Created a custom log in Log Analytics Workspace. The failed RDP attempts log col
 <br />
 <img src="https://i.imgur.com/s9JGrCE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-Checked if L.A.W is receiving logs by checking for updated Windows Security logs which it was. This was done by running ( SecurityEvent | where EventID == 4625 ) which showed all recent failed rdp logs.<br />
+Checked if L.A.W is receiving logs by checking for updated Windows Security logs which it was. This was done by running ( SecurityEvent | where EventID == 4625 ) query which showed all recent failed rdp logs.<br />
 <img src="https://i.imgur.com/a2BSobl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/DKiD3zH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -128,15 +128,17 @@ First performed some intentional failed RDP attempts to confirm that the logs we
 <img src="https://i.imgur.com/dC6OSs6.png" height="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Visualized the logs as a map in Azure Sentinel to see where the attempts are originating from.<br/>
+Visualized the logs as a map in Azure Sentinel to see where the attempts were originating from. A new workbook was created to show the map.<br/>
 <img src="https://i.imgur.com/USL3nah.png" height="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/OtlYn2o.png" height="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/jiZnvKl.png" height="80%" alt="Disk Sanitization Steps"/>
 <br />
+ (FAILED_RDP_WITH_GEO1_CL | summarize event_count=count() by sourcehost_CF, latitude_CF, longitude_CF, country_CF, label_CF, destinationhost_CF) query was ran with the visualization option set to map. This generated the information needed to see the where these failed RDP logon attempts are originating from.
 <img src="https://i.imgur.com/dRJIwwG.png" height="80%" alt="Disk Sanitization Steps"/>
 <br />
+There was an increase in attempts from Indonesia as shown on the map.
 <img src="https://i.imgur.com/A8G28NQ.png" height="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/jKLri07.png" height="80%" alt="Disk Sanitization Steps"/>
