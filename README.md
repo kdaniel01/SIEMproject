@@ -138,7 +138,8 @@ Visualized the logs as a map in Azure Sentinel to see where the attempts were or
  (FAILED_RDP_WITH_GEO1_CL | summarize event_count=count() by sourcehost_CF, latitude_CF, longitude_CF, country_CF, label_CF, destinationhost_CF) query was ran with the visualization option set to map. This generated the information needed to see the where these failed RDP logon attempts are originating from.
 <img src="https://i.imgur.com/dRJIwwG.png" height="80%" alt="Disk Sanitization Steps"/>
 <br />
-There was an increase in attempts from Indonesia as shown on the map.
+There was an increase in attempts from Indonesia as shown on the map which corresponds with the log data generated on the Honeypot vm.<br />
+
 <img src="https://i.imgur.com/A8G28NQ.png" height="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/jKLri07.png" height="80%" alt="Disk Sanitization Steps"/>
