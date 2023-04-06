@@ -103,12 +103,13 @@ Created a custom log in Log Analytics Workspace. The failed RDP attempts log col
 <br />
 <img src="https://i.imgur.com/s9JGrCE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-Checked if L.A.W is receiving log by checking for updated Windows Security logs which it was. This was done by running SecurityEvent | where EventID == 4625 which showed all recent failed rdp logs.<br />
+Checked if L.A.W is receiving logs by checking for updated Windows Security logs which it was. This was done by running ( SecurityEvent | where EventID == 4625 ) which showed all recent failed rdp logs.<br />
 <img src="https://i.imgur.com/a2BSobl.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/DKiD3zH.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
+The 'FAILED_RDP_WITH_GEO1_CL' custom log data was then used to extract and create custom fields to organize data.This is done for efficient searching and accurate data visualization. This allowed us to create customs fields like latitude, longitude, username, country, state etc.
 <img src="https://i.imgur.com/oJr7snR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://i.imgur.com/JeyFDx4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
